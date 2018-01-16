@@ -1,0 +1,85 @@
+<div class="row">
+    <div class="col-xs-12">
+    <form (ngSubmit)="onSubmit(f)" #f ="ngForm">
+
+      <div class="row" style="margin-bottom: 20px">
+          <div class="col-xs-12">
+            <button 
+              class="btn btn-success" 
+              type="submit"
+              [disabled] = "!f.valid"> Save</button>
+            <button 
+              class="btn btn-primary" 
+              type="button" 
+              (click) = "onCancel()">Cancel</button>
+          </div>
+        </div>
+
+      <div class="row">
+          <div class="col-sm-12 form-group">
+              <label for="companyInfo">Company Info</label>
+              <input 
+                type="text"
+                id="companyInfo"
+                class="form-control"
+                name="companyInfo"
+                [(ngModel)] = "target.companyInfo"
+                required>
+          </div>
+        </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="status">Status</label>
+          <!-- <input 
+            type="text"
+            id="status"
+            class="form-control"
+            name="status"
+            [(ngModel)] = "target.status"
+            required> -->
+
+            <select class="form-control" [(ngModel)]="selectedStatus" 
+                    required  name ="status">
+              <option *ngFor="let st of statuses" value = "{{st.id}}">
+              {{st.name}}
+              </option>
+              </select>
+        </div>
+      </div>
+
+        <div class="row">
+          <div class="col-sm-12 form-group">
+              <label for="KeyContacts">Contacts</label>
+              <input 
+                type="number"
+                id="KeyContacts"
+                class="form-control"
+                name="KeyContacts"
+                [(ngModel)] = "target.KeyContacts"
+                required
+                pattern="^[1-9]+[0-9]*$" >
+          </div>
+        </div>
+
+          <div class="row">
+            <div class="col-sm-12 form-group">
+                <label for="financialPerformance">Performance</label>
+                <!-- <input 
+                  type="text"
+                  id="financialPerformance"
+                  class="form-control"
+                  name="financialPerformance"
+                  [(ngModel)] = "target.financialPerformance"
+                  required> -->
+                  <select class="form-control" [(ngModel)]="selectedPerformance" 
+                                                required  name ="financialPerformance">
+                    <option *ngFor="let perform of performances" value = "{{perform.id}}">
+                      {{perform.name}}
+                    </option>
+                  </select>
+              </div>
+            </div>
+    </form>
+    </div>
+  </div>

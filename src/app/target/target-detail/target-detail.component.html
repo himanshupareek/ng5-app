@@ -1,0 +1,40 @@
+<div class="row" style="margin-top:10px;">
+  <button class="btn btn-success btn-sm" (click) = "onEditTargetClick()">Edit Target</button>
+  <button class="btn btn-danger btn-sm" (click) = "onDeleteTarget()">Delete Target</button>
+  <button class="btn btn-primary btn-sm" (click) = "toggleChart()">{{chartBtnText}}</button>
+</div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>{{target.companyInfo}}</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <h5>{{target.status}}</h5>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-xs-12">
+        <h5>{{target.KeyContacts}}</h5>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-xs-12">
+        <h5>{{target.financialPerformance}}</h5>
+      </div>
+  </div>
+  <div>
+    <div style="display: block" [@isVisibleChanged]="isVisible">
+      <canvas baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+              ></canvas>
+    </div>
+  </div>

@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-success btn-sm" (click) = "onNewTargetClick()" >
+      New Target
+    </button>
+  </div>
+</div>
+<hr/>
+<div class="row">
+  <div class="col-xs-12">
+    <app-target-item 
+      *ngFor="let targetElem of targets; let i = index;" 
+      [target] = "targetElem" 
+      [index] = "i"></app-target-item>
+  </div>
+</div>
+
+
+<!-- <p-dataTable [value]="targets">
+  <p-column field="status" header="status"></p-column>
+  <p-column field="companyInfo" header="companyInfo"></p-column>
+  <p-column field="KeyContacts" header="KeyContacts"></p-column>
+  <p-column field="financialPerformance" header="financialPerformance"></p-column>
+</p-dataTable> -->
+
+<!-- <p-dataTable [value]="targets" [rows]="2" [paginator]="true" [editable]="true" expandableRows="true">
+    <p-column expander="true" [style]="{'width':'22px'}"></p-column>
+
+  <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header" [editable]="true"></p-column>
+
+  <ng-template let-target pTemplate="rowexpansion">
+      <div class="ui-grid ui-grid-responsive ui-fluid" style="font-size:16px;padding:20px">
+          <div class="ui-grid-row">
+              
+              <div class="ui-grid-col-12">
+                  <div class="ui-grid ui-grid-responsive ui-grid-pad">
+                      <div class="ui-grid-row">
+                          <div class="ui-grid-col-2 label">Vin: </div>
+                          <div class="ui-grid-col-10">{{target.status}}</div>
+                      </div>
+                      <div class="ui-grid-row">
+                          <div class="ui-grid-col-2 label">Year: </div>
+                          <div class="ui-grid-col-10">{{target.companyInfo}}</div>
+                      </div>
+                      <div class="ui-grid-row">
+                          <div class="ui-grid-col-2 label">Brand: </div>
+                          <div class="ui-grid-col-10">{{target.KeyContacts}}</div>
+                      </div>
+                      <div class="ui-grid-row">
+                          <div class="ui-grid-col-2 label">Color: </div>
+                          <div class="ui-grid-col-10">{{target.financialPerformance}}</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </ng-template>
+
+</p-dataTable>  -->
